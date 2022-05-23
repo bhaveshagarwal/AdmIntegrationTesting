@@ -10,7 +10,7 @@ env:
    - version
 steps:
   - type: Command
-    name: "See maven repo before build"
+    name: "Install latest graal vm ee"
     command: |
       (echo -e '[ol7_oci_included]' && \
       echo 'name=Oracle Software for OCI users on Oracle Linux $releasever ($basearch)' && \
