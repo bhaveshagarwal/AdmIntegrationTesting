@@ -20,17 +20,5 @@ steps:
       echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
       chmod +x ./get-graalvm.sh
       sh ./get-graalvm.sh
-      ls -lart /root/.m2/repository
       echo "hello world"
-  - type: Command
-    name: "building the code"
-    command: |
-      mvn clean install
-  - type: Command
-    name: "viewing after build"
-    command: |
-      ls -lart /root/.m2/repository
-#   - type: Command
-#     name: "building the code second time"
-#     command: |
-#       mvn clean install
+  
