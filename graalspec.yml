@@ -1,0 +1,36 @@
+
+   
+version: 0.1
+component: build
+timeoutInSeconds: 20000
+runAs: root
+shell: bash
+env:
+  exportedVariables:
+   - version
+steps:
+  - type: Command
+    name: "See maven repo before build"
+    command: |
+      (echo -e '[ol7_oci_included]' && \
+      echo 'name=Oracle Software for OCI users on Oracle Linux $releasever ($basearch)' && \
+      echo 'baseurl=https://yum-phx.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/' && \
+      echo 'gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle' && \
+      echo 'gpgcheck=1' && \
+      echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
+      chmod +x ./get-graalvm.sh
+      sh ./get-graalvm.sh
+      ls -lart /root/.m2/repository
+      echo "hello world"
+  - type: Command
+    name: "building the code"
+    command: |
+      mvn clean install
+  - type: Command
+    name: "viewing after build"
+    command: |
+      ls -lart /root/.m2/repository
+#   - type: Command
+#     name: "building the code second time"
+#     command: |
+#       mvn clean install
