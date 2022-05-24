@@ -18,9 +18,11 @@ steps:
       echo 'gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle' && \
       echo 'gpgcheck=1' && \
       echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
-      yum-config-manager --enable ol7_optional_latest
+      # yum-config-manager --enable ol7_optional_latest
       chmod +x ./get-graalvm.sh
       sh ./get-graalvm.sh
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm22-ee-java17
+      export PATH=$JAVA_HOME/bin:$PATH
       echo "hello world1"
       echo $JAVA_HOME
       echo $PATH
