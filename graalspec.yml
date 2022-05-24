@@ -12,23 +12,23 @@ steps:
   - type: Command
     name: "Install latest graal vm ee"
     command: |
-      # (echo -e '[ol7_oci_included]' && \
-      # echo 'name=Oracle Software for OCI users on Oracle Linux $releasever ($basearch)' && \
-      # echo 'baseurl=https://yum-phx.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/' && \
-      # echo 'gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle' && \
-      # echo 'gpgcheck=1' && \
-      # echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
+      (echo -e '[ol7_oci_included]' && \
+      echo 'name=Oracle Software for OCI users on Oracle Linux $releasever ($basearch)' && \
+      echo 'baseurl=https://yum-phx.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/' && \
+      echo 'gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle' && \
+      echo 'gpgcheck=1' && \
+      echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
       yum-config-manager --enable ol7_optional_latest
       echo "job done"
       chmod +x ./get-graalvm.sh
       # sh ./get-graalvm.sh
-      # yum -y install graalvm22-ee-17-native-image
-      # export JAVA_HOME=/usr/lib64/graalvm/graalvm22-ee-java17
-      # export PATH=$JAVA_HOME/bin:$PATH
+      yum -y install graalvm22-ee-17-native-image
+      export JAVA_HOME=/usr/lib64/graalvm/graalvm22-ee-java17
+      export PATH=$JAVA_HOME/bin:$PATH
       echo "hello world1"
       echo $JAVA_HOME
       echo $PATH
-      # native-image --version
+      native-image --version
       java -version
       which java
       ls -alh /etc/yum.repos.d/
