@@ -19,7 +19,7 @@ steps:
       echo 'gpgcheck=1' && \
       echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
       yum-config-manager --enable ol7_optional_latest
-      echo "job done"
+      echo "print https://yum-us-phoenix-1.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/"
       chmod +x ./get-graalvm.sh
       # sh ./get-graalvm.sh
       yum -y install graalvm22-ee-17-native-image
