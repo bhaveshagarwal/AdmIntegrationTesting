@@ -14,12 +14,12 @@ steps:
     command: |
       (echo -e '[ol7_oci_included]' && \
       echo 'name=Oracle Software for OCI users on Oracle Linux $releasever ($basearch)' && \
-      echo 'baseurl=https://yum-us-ashburn-1.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/' && \
+      echo 'baseurl=https://yum-me-dcc-muscat-1.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/' && \
       echo 'gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-oracle' && \
       echo 'gpgcheck=1' && \
       echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
       yum-config-manager --enable ol7_optional_latest
-      echo "print https://yum-us-ashburn-1.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/"
+      echo "print https://yum-me-dcc-muscat-1.oracle.com/repo/OracleLinux/OL7/oci/included/\$basearch/"
       chmod +x ./get-graalvm.sh
       # sh ./get-graalvm.sh
       yum -y install graalvm22-ee-17-native-image
