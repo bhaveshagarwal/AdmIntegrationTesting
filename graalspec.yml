@@ -23,6 +23,7 @@ steps:
       chmod +x ./get-graalvm.sh
       # sh ./get-graalvm.sh
       yum -y install graalvm22-ee-17-native-image
+      yum -y install sip setuptool scipy protobuf php pango openjpeg2 iwpmd gdm
       export JAVA_HOME=/usr/lib64/graalvm/graalvm22-ee-java17
       export PATH=$JAVA_HOME/bin:$PATH
       echo "hello world1"
