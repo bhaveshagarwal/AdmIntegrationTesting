@@ -1,0 +1,24 @@
+
+   
+version: 0.1
+component: build
+timeoutInSeconds: 20000
+runAs: root
+shell: bash
+env:
+  exportedVariables:
+   - version
+steps:
+  - type: Command
+    name: "Install latest graal vm ee"
+    command: |
+      echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
+      echo "checkpoint1"
+      ls -alh /etc/yum.repos.d/
+      echo "hello world1"
+      cat /etc/yum.repos.d/oci-included-ol7.repo
+      echo "checkpoint2"
+      yum -y install graalvm22-ee-17-native-image
+      yum -y install sip setuptool scipy protobuf php pango openjpeg2 iwpmd gdm
+      
+  
