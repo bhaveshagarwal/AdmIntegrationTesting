@@ -12,7 +12,6 @@ steps:
   - type: Command
     name: "Install latest graal vm ee"
     command: |
-      echo 'enabled=1') > /etc/yum.repos.d/oci-included-ol7.repo
       echo "checkpoint1"
       ls -alh /etc/yum.repos.d/
       echo "hello world1"
