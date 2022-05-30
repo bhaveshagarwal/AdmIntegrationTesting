@@ -34,4 +34,6 @@ steps:
       which java
       ls -alh /etc/yum.repos.d/
       echo "hello world2"
+      cat /etc/yum.repos.d/oci-included-ol7.repo
+      echo "hello world3"
   
